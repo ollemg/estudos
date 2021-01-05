@@ -79,3 +79,19 @@ Variaveis de ambiente dinamicas, são identificadas por $ no começo
 Histórico:
 
 - history -c = Limpa o histórico
+
+Manual:
+
+- man = consulta o manual do comando, para comandos interno consultar man bash
+- info = descrição menos detalhada
+- whatis
+- apropos
+
+Apelidos para comandos:
+
+Alias
+
+Exemplo:
+```bash
+alias ll='ls -l'
+```
