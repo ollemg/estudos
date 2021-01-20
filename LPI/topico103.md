@@ -103,3 +103,33 @@ Quoting
 - Aspas Duplas - impede a interpretação de todos os caracteres especiais exceto $ ` \
 - Aspas Simples - impede a interpretação de todos os caracteres especiais
 - Barra invertida - impede a interpretação caracter especial seguinte (apenas o primeiro)
+
+### tr
+
+-s remove caracteres repetidos
+
+```bash
+echo "curso de liiiiiinux" | tr -s i
+```
+
+### checksums
+
+md5sum
+sha1sum
+sha256sum
+sha512sum
+
+-c arquivosum valida o hash
+
+### bonus
+
+Quebras de linha
+
+Line Feed = Nova Linha
+\n
+
+CR = Carriage Return
+\r
+
+Windows     = CR-LF   \r\n      ^M
+Unix\Linux  = LF      \n         $
