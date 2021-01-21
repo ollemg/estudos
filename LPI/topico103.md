@@ -103,6 +103,7 @@ Quoting
 - Aspas Duplas - impede a interpretação de todos os caracteres especiais exceto $ ` \
 - Aspas Simples - impede a interpretação de todos os caracteres especiais
 - Barra invertida - impede a interpretação caracter especial seguinte (apenas o primeiro)
+<<<<<<< HEAD
 - 
 
 ## 103.2
@@ -215,3 +216,35 @@ Ferramenta de manipulação de caracteres.
   - G de global
 - Apagar da linha 3 a 5: sed '3,5 d' arquivo.txt
 - apagar sempre que aparecer a palavra X: sed '/texto/d'
+=======
+
+### tr
+
+-s remove caracteres repetidos
+
+```bash
+echo "curso de liiiiiinux" | tr -s i
+```
+
+### checksums
+
+md5sum
+sha1sum
+sha256sum
+sha512sum
+
+-c arquivosum valida o hash
+
+### bonus
+
+Quebras de linha
+
+Line Feed = Nova Linha
+\n
+
+CR = Carriage Return
+\r
+
+Windows     = CR-LF   \r\n      ^M
+Unix\Linux  = LF      \n         $
+>>>>>>> 4ae132c3ae4b1df5bed90211f46f5126601e9e9a
