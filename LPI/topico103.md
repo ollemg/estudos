@@ -206,6 +206,10 @@ manipula saidas de arquivos
 - -d delimita um campo
 - -f coluna do delimitador
 
+```bash
+cut -d ";" -f1,2,3 .\arquivo.txt
+```
+
 ### sed
 
 Ferramenta de manipulação de caracteres.
@@ -246,3 +250,56 @@ CR = Carriage Return
 
 Windows     = CR-LF   \r\n      ^M
 Unix\Linux  = LF      \n         $
+
+### Linux Directory Structure
+
+Caminho absoluto = /var/log/
+Caminho Relativo ./log
+
+## cd
+
+Volta para o diretorio anterior:
+```bash
+cd -
+```
+
+Ir para home do usuário:
+```bash
+cd ~
+```
+
+### ls
+
+Arquivos ocultos:
+
+```bash
+ls -a
+```
+
+Lista detalhada:
+
+```bash
+ls -l
+```
+
+Lista Recursivamente
+
+```bash
+ls -R /directorio
+```
+
+### cp
+
+pergunta se um arquivo vai ser sobrescrito 
+
+```bash
+cp -i
+```
+
+preservar as caracteristicas do arquivo
+
+```bash
+cp -p
+```
+```bash
+```
