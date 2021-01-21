@@ -214,4 +214,4 @@ Ferramenta de manipulação de caracteres.
 - Substituir todas as correncias: sed 's/origem/destino/g' arquivo.txt 
   - G de global
 - Apagar da linha 3 a 5: sed '3,5 d' arquivo.txt
-- apagar sempre que aparecer a palavra X: sed '/texto/d' arquivo.txt
+- apagar sempre que aparecer a palavra X: sed '/texto/d'
