@@ -103,7 +103,6 @@ Quoting
 - Aspas Duplas - impede a interpretação de todos os caracteres especiais exceto $ ` \
 - Aspas Simples - impede a interpretação de todos os caracteres especiais
 - Barra invertida - impede a interpretação caracter especial seguinte (apenas o primeiro)
-<<<<<<< HEAD
 - 
 
 ## 103.2
@@ -247,4 +246,3 @@ CR = Carriage Return
 
 Windows     = CR-LF   \r\n      ^M
 Unix\Linux  = LF      \n         $
->>>>>>> 4ae132c3ae4b1df5bed90211f46f5126601e9e9a
