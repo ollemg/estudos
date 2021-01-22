@@ -276,7 +276,7 @@ Arquivos ocultos:
 ls -a
 ```
 
-Lista detalhada:
+Lista detalhada, mostra a hora da ultima alteração:
 
 ```bash
 ls -l
@@ -290,7 +290,7 @@ ls -R /directorio
 
 ### cp
 
-pergunta se um arquivo vai ser sobrescrito 
+pergunta se um arquivo vai ser sobrescrit
 
 ```bash
 cp -i
@@ -301,5 +301,111 @@ preservar as caracteristicas do arquivo
 ```bash
 cp -p
 ```
+
+### touch
+
+Cria um arquivo ou altera a data de modificação do arquivo
+
+Modifica a data do ultimo acesso
+
 ```bash
+touch -a arquivo.txt
+```
+
+Data e hora da ultima modificação
+
+```bash
+touch -m arquivo.txt
+```
+
+Data customizada (31/12/2021):
+
+```bash
+touch -t 202131122359 arquivo.txt
+```
+
+### rm
+
+Remove arquivos e diretorios
+
+só remove diretorios vazios
+
+```bash
+rmdir /diretorio/
+```
+
+Remover a arvore de diretorios
+
+```bash
+rmdir -p /diretorio1/diretorio2/diretorio3/
+```
+
+### mkdir
+
+Cria diretorios
+
+Cria diretorios recursivo
+
+```bash
+mkdir -p /diretorio1/diretorio2/diretorio3
+```
+
+### find 
+
+Procura diretorios e arquivos
+
+```bash
+find / -name algumacoisa.txt
+```
+
+Procura arquivos e diretorios que pertencem ao usuario root
+
+```bash
+find / -user root
+```
+
+Arquivos que foram executados um dia antes:
+
+```bash
+find / -ctime -1
+```
+
+### tar
+
+gerenciador de compactação e descompactação de arquivos.
+
+Principais parametros
+
+- -c criar um arquivo
+- -x extrair um arquivo
+- -t listar um arquivo
+- -f nome do arquivo
+- -p preservar as permissoes
+
+```bash
+tar -cpvf backup.tar arquivo.log
+```
+
+Visualiza arquivos compactados
+
+```bash
+tar -tlf backup.tar
+```
+
+Os pricipais compactadores
+
+- gzip
+- bzip
+- xz
+
+Para compactar em gzip
+
+```bash
+gzip backup.tar
+```
+
+Para descompactar em gzip
+
+```bash
+ungzip backup.tar
 ```
