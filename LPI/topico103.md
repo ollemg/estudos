@@ -64,8 +64,6 @@ Variaveis de ambiente dinamicas, são identificadas por $ no começo
 - $! = PID ultimo processo em background 
 - $? = Mostra o codigo de retorno do ultimo comando
   - 0 = sucesso
-li
-  - 
 - ~ = home do usuário atual
 
 ## 103.1 Comandos sequenciais
@@ -91,19 +89,18 @@ Manual:
 Alias
 
 Exemplo:
+
 ```bash
 alias ll='ls -l'
 ```
 
 witch - localiza qualquer comando (arquivos que estejam no $PATH)
 
-
 Quoting
 
 - Aspas Duplas - impede a interpretação de todos os caracteres especiais exceto $ ` \
 - Aspas Simples - impede a interpretação de todos os caracteres especiais
 - Barra invertida - impede a interpretação caracter especial seguinte (apenas o primeiro)
-- 
 
 ## 103.2
 
