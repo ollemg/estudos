@@ -406,3 +406,29 @@ Para descompactar em gzip
 ```bash
 ungzip backup.tar
 ```
+
+
+### cpio
+
+similar ao tar
+
+cria uma lista de arquivo, agrupa com o cpio, compacta com gzip
+
+```bash
+find ./ -name "*.conf" | cpio -o | gzip > backup.cpio.gz
+```
+
+desagrupar arquivos
+
+```bash
+cpio -i < backup.cpio.gz
+```
+
+desagrupar arquivos e criar os subdiretorios
+
+```bash
+cpio -d -i < backup.cpio
+```
+
+### dd
+
