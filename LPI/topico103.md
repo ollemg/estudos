@@ -395,14 +395,79 @@ Os pricipais compactadores
 - bzip
 - xz
 
-Para compactar em gzip
+Para compactar:
+
+Mantem o arquivo original
 
 ```bash
-gzip backup.tar
+gzip -k backup.tar
 ```
-
-Para descompactar em gzip
 
 ```bash
-ungzip backup.tar
+bzip2 -k backup.tar
 ```
+
+```bash
+xz -k backup.tar
+```
+
+Para descompactar:
+
+-d descompress
+
+```bash
+gzip -d backup.tar.gz
+gunzip backup.tar.gz
+```
+
+```bash
+bzip2 -d backup.tar.bz
+bunzip2 backup.tar.bz
+```
+
+```bash
+xz -d backup.tar.xz
+unxz backup.tar.xz
+```
+
+## 103.4  Fluxos, Pipes e Redirecionamentos - Redirentrada/saida/erro, | (pipe)
+
+Entrada padrão STDIN (0)
+
+Saída Padrão STDOUT (1)
+
+Erro Padrão STDERR (2)
+
+### > >> 2> 2>>
+
+Redirecionamento da saida padrão (sobrescreve o arquivo)
+
+```bash
+echo linux > arquivo.txt
+```
+
+Redirecionamento da saida padrão (Escreve na ultima linha)
+
+```bash
+echo linux >> arquivo.txt
+```
+
+Redirecionamento de erro padrão (sobrescreve o arquivo)
+
+```bash
+ls -l  arquivo.log 2> arquivo.txt
+```
+
+Redirecionamento de erro padrão (Escreve na ultima linha)
+
+```bash
+ls -l  arquivo.log 2>> arquivo.txt
+```
+
+Redirecionar a saida padrão e a saída de erro pro mesmo arquivo
+
+```bash
+ls -l {arquivo,ARQUIVO}3 > saida_padrao.txt 2>$1
+```
+
+OBS: não redirecionar um arquivo para o mesmo arquivo
