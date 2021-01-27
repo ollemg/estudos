@@ -519,7 +519,3 @@ echo "versão do kernel:" `uname -r`
 ```bash
 echo "versão do kernel:" $(uname -r)
 ```
-
-=======
-
->>>>>>> main
