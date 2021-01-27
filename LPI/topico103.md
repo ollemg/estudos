@@ -303,12 +303,7 @@ cp -p
 
 Cria um arquivo ou altera a data de modificação do arquivo
 
-Modifica a data do ultimo acesso
-
-```bash
-touch -a arquivo.txt
-```
-
+Modifica a data do ultiM
 Data e hora da ultima modificação
 
 ```bash
@@ -471,3 +466,56 @@ ls -l {arquivo,ARQUIVO}3 > saida_padrao.txt 2>$1
 ```
 
 OBS: não redirecionar um arquivo para o mesmo arquivo
+
+### cpio
+
+similar ao tar
+
+cria uma lista de arquivo, agrupa com o cpio, compacta com gzip
+
+```bash
+find ./ -name "*.conf" | cpio -o | gzip > backup.cpio.gz
+```
+
+desagrupar arquivos
+
+```bash
+cpio -i < backup.cpio.gz
+```
+
+desagrupar arquivos e criar os subdiretorios
+
+```bash
+cpio -d -i < backup.cpio
+```
+
+### dd
+
+### tee
+
+le de uma entrada padrão e escreve uma saida padrão num arquivo
+
+
+```bash
+ls -l \ | tee barra.txt
+```
+
+### xargs
+
+exemplo:
+
+```bash
+find / -name "*conf" | xargs ls -l
+```
+
+### executar comandos dentro de outros comandos
+
+exemplo
+
+```bash
+echo "versão do kernel:" `uname -r`
+```
+
+```bash
+echo "versão do kernel:" $(uname -r)
+```
