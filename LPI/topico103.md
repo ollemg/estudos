@@ -491,6 +491,8 @@ cpio -d -i < backup.cpio
 
 ### dd
 
+### 103.4
+
 ### tee
 
 le de uma entrada padrão e escreve uma saida padrão num arquivo
@@ -519,3 +521,72 @@ echo "versão do kernel:" `uname -r`
 ```bash
 echo "versão do kernel:" $(uname -r)
 ```
+
+## 103.5 Criar, Monitorar e Encerrar Processos - processos, ps, pstree, pgrep
+
+PID = Process ID
+
+PPID = Parent Process ID
+
+Primeiro processo do linux é o init que tem o ID 1
+
+## ps 
+
+Visualiza os processos em execução
+
+- -u usuario
+- -x processos não ligados ou pts
+- -f mostra os parentescos dos processos
+- -a
+- -C {nome do processo}
+- -l
+
+exemplo:
+
+```bash
+ps -uxf
+```
+
+## pstree
+
+-p mostra os id dos processos
+
+
+## pgrep
+
+mostra o numero do processo
+
+```bash
+pgrep firefox
+```
+
+```bash
+pgrep bash -u root
+```
+
+## top
+
+- Shift + M = ordena por Memória
+- Shift + P = ordena por Processador
+- U = Filtra por usuario
+- R = 
+- N = Numero de processos pra visualizar
+- K = mata um processo (kill)
+
+
+Parecido com um tail -f
+
+```bash
+top -b
+```
+
+-d = Fica com um delay de 3 segundos
+-n = mostra 3 vezes
+
+```bash
+top -b -d3 -n3 > log-process.log
+```
+
+## kill
+
+ 
