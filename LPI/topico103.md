@@ -589,4 +589,51 @@ top -b -d3 -n3 > log-process.log
 
 ## kill
 
- 
+- SIGHUP terminar ou reiniair um processo ou reler as configurações
+- SIGINT interrompe um processo (Ctrl + C)
+- SIGQUIT fecha o processo
+- SIGKILL Matar abroptamente, nenhum processo consegue ignorar esse sinal
+- SIGTERM encerra o processo de forma não abrupta
+
+## killall
+
+mata o processo baseado no nome
+
+```bash
+killall firefox
+```
+
+## pkill
+
+faz filtro similar ao pgrep
+
+```bash
+pkill -9 nginx -u nginx
+```
+
+## free
+
+visualização de memória
+
+## screen 
+
+varias telas no mesmo ssh
+
+- ctrl a + n = proxima pagina (next)
+- ctrl a + c = Cria uma nova aba
+- exit encerra o screen
+
+## bg
+
+processos em backgroud
+
+```bash
+firefox &
+```
+
+- ctrl Z = pausa o processo
+
+
+## jobs
+
+mostra os processos em backgroud
