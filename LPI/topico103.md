@@ -633,7 +633,6 @@ firefox &
 
 - ctrl Z = pausa o processo
 
-
 ## jobs
 
 mostra os processos em backgroud
