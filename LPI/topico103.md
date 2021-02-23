@@ -636,3 +636,19 @@ firefox &
 ## jobs
 
 mostra os processos em backgroud
+
+## nohup
+
+roda um comando imune a desligamentos e joga a saida do comando para um arquivo
+
+```bash
+nohup fireofox &
+```
+
+## watch
+
+persiste a saida de um comando na tela
+
+## tmux
+
+similar ao screen só que melhor
