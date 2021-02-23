@@ -755,4 +755,3 @@ Mostrar as ocorrencias com bag, beg, big:
 ```bash
 egrep "b[aei]g" arquivo.txt
 ```
-
