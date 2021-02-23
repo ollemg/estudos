@@ -539,7 +539,7 @@ Visualiza os processos em execução
 - -f mostra os parentescos dos processos
 - -a
 - -C {nome do processo}
-- -l
+- -l mostra a prioridade do processo
 
 exemplo:
 
@@ -652,3 +652,107 @@ persiste a saida de um comando na tela
 ## tmux
 
 similar ao screen só que melhor
+
+ctrl + b c - Criar uma nova janela
+ctrl + b w - Escolhe uma janela de uma lista
+ctrl + b 0 - Troca pra janela 0
+ctrl + b , - Renomear a janela atual
+ctrl + b % - Divide horizontalmente em 2 telas
+ctrl + b " - Divide verticalmente em 2 telas
+ctrl + b o - Ir para próxima página
+ctrl + b ; - Alterar entre o painel atual e o anterior
+ctrl + b x - Fechar o painel atual
+
+## Priorização de processos
+
+Dentro do comando top
+
+PR - Diz a prioridade naquele momento
+NI - Admin influenciar a prioridade
+
+Definir o nice de um processo
+
+```bash
+nice
+```
+
+Alterar o nice de um processo que já está em execução
+
+```bash
+renice
+```
+
+A escala vai de -20 até +19. Valor negativo mais prioridade, valor positivo menos prioridade.
+
+Apenas o root pode aumentar a prioridade dos processos.
+
+O padrão do nice é 10
+
+```bash
+nice firefox
+```
+
+## grep
+
+Numero de ocorrências:
+
+```bash
+grep -c linux texto.txt
+```
+
+Ignorar case sensetive
+
+```bash
+grep -i linux texto.txt
+```
+
+Recursivo
+
+```bash
+grep -r linux /etc
+```
+
+Todas as linhas que não contem a palavra especificada
+
+```bash
+grep -v linux texto.txt
+```
+
+Expande as expressoes regulares
+
+```bash
+grep -E 
+egrep
+```
+
+Não considera expressões regulares
+
+```bash
+fgrep
+```
+
+## Expressões Regulares
+
+- [] lista
+- ^ começo da linha
+- $ final da linha
+- ^$ linha em branco
+- "*" todas as ocorrências ou nenhuma
+- "+" pelo menos uma vez
+- ? Nenhuma ou apenas uma vez
+- . qualquer caracter, apenas um
+
+Exemplos com Egrep:
+
+Mostrar apenas as linhas não comentadas e sem linhas em branco
+
+```bash
+egrep -v "#|^$" nginx.conf
+```
+
+Mostrar as ocorrencias com bag, beg, big:
+
+```bash
+egrep "b[aei]g" arquivo.txt
+```
+
