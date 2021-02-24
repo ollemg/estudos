@@ -753,7 +753,7 @@ egrep "b[aei]g" arquivo.txt
 Mostrar apenas endereços ipv4:
 
 ```bash
-ip -br a | egrep -o "([0-9]{1,3}[.\]){3}([0-9]{1,3})"
+ip -br a | egrep -o "([0-9]{1,3}[\.]){3}([0-9]{1,3})"
 ```
 
 ## 103.8
