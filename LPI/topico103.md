@@ -42,7 +42,7 @@ Alterar variavel na execução:
 env TESTE=aaaa /home/script/script_teste.sh
 ```
 
-Remover definição de variavel 
+Remover definição de variavel
 
 ```bash
 unset TESTE
@@ -61,7 +61,7 @@ Variaveis de ambientes importantes
 Variaveis de ambiente dinamicas, são identificadas por $ no começo
 
 - $$ = PID do processo atual
-- $! = PID ultimo processo em background 
+- $! = PID ultimo processo em background
 - $? = Mostra o codigo de retorno do ultimo comando
   - 0 = sucesso
 - ~ = home do usuário atual
@@ -141,7 +141,6 @@ Pagina os a saida de um comando
 
 - mostra o numero de linhas, palavras e bytes de um arquivo
 
-
 ### nl (number lines)
 
 numera linhas
@@ -179,7 +178,6 @@ separa um arquivo em varios
 - -l separa em x linhas
 - -b separa por bytes
 
-
 ### tr
 
 manipula arquivos
@@ -212,19 +210,10 @@ cut -d ";" -f1,2,3 .\arquivo.txt
 Ferramenta de manipulação de caracteres.
 
 - Substituir primeira ocorrencia de uma linha: sed 's/origem/destino/' arquivo.txt
-- Substituir todas as correncias: sed 's/origem/destino/g' arquivo.txt 
+- Substituir todas as correncias: sed 's/origem/destino/g' arquivo.txt
   - G de global
 - Apagar da linha 3 a 5: sed '3,5 d' arquivo.txt
 - apagar sempre que aparecer a palavra X: sed '/texto/d'
-=======
-
-### tr
-
--s remove caracteres repetidos
-
-```bash
-echo "curso de liiiiiinux" | tr -s i
-```
 
 ### checksums
 
@@ -256,11 +245,13 @@ Caminho Relativo ./log
 ## cd
 
 Volta para o diretorio anterior:
+
 ```bash
 cd -
 ```
 
 Ir para home do usuário:
+
 ```bash
 cd ~
 ```
@@ -342,7 +333,7 @@ Cria diretorios recursivo
 mkdir -p /diretorio1/diretorio2/diretorio3
 ```
 
-### find 
+### find
 
 Procura diretorios e arquivos
 
@@ -497,7 +488,6 @@ cpio -d -i < backup.cpio
 
 le de uma entrada padrão e escreve uma saida padrão num arquivo
 
-
 ```bash
 ls -l \ | tee barra.txt
 ```
@@ -530,7 +520,7 @@ PPID = Parent Process ID
 
 Primeiro processo do linux é o init que tem o ID 1
 
-## ps 
+## ps
 
 Visualiza os processos em execução
 
@@ -551,7 +541,6 @@ ps -uxf
 
 -p mostra os id dos processos
 
-
 ## pgrep
 
 mostra o numero do processo
@@ -569,10 +558,9 @@ pgrep bash -u root
 - Shift + M = ordena por Memória
 - Shift + P = ordena por Processador
 - U = Filtra por usuario
-- R = 
+- R =
 - N = Numero de processos pra visualizar
 - K = mata um processo (kill)
-
 
 Parecido com um tail -f
 
@@ -615,7 +603,7 @@ pkill -9 nginx -u nginx
 
 visualização de memória
 
-## screen 
+## screen
 
 varias telas no mesmo ssh
 
