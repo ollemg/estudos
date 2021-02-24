@@ -1,6 +1,6 @@
 # Tópico 103 - Trabalhando na linha de comando
 
-## 103.1 shell, bash, echo, type, PATH
+## 103.1
 
 Existem 3 tipos de comandos: comandos internos, comandos instalados remotamente e scripts, o comando type serve para identificar isso
 
@@ -15,8 +15,6 @@ o $PATH identifica
 ```bash
 echo $PATH
 ```
-
-## 103.1 variaveis de ambiente
 
 Para uma variavel ser global é necessário exportar a váriavel
 
@@ -65,9 +63,6 @@ Variaveis de ambiente dinamicas, são identificadas por $ no começo
 - $? = Mostra o codigo de retorno do ultimo comando
   - 0 = sucesso
 - ~ = home do usuário atual
-
-## 103.1 Comandos sequenciais
-
 - ;   = Executa os comandos em sequencia idenpendente do retorno do comando
 - &&  = Só executa o proximo comandos se o anterior teve sucesso (codigo de retorno 0)
 - ||  = Só execura se o comando anterior não teve sucesso (codigo de retorno diferente de 0)
@@ -86,7 +81,7 @@ Manual:
 - whatis
 - apropos
 
-Alias
+### Alias
 
 Exemplo:
 
@@ -242,7 +237,9 @@ Unix\Linux  = LF      \n         $
 Caminho absoluto = /var/log/
 Caminho Relativo ./log
 
-## cd
+## 103.3
+
+### cd
 
 Volta para o diretorio anterior:
 
@@ -386,7 +383,7 @@ Para compactar:
 Mantem o arquivo original
 
 ```bash
-gzip -k backup.tar
+gzip backup.tar
 ```
 
 ```bash
@@ -416,7 +413,7 @@ xz -d backup.tar.xz
 unxz backup.tar.xz
 ```
 
-## 103.4  Fluxos, Pipes e Redirecionamentos - Redirentrada/saida/erro, | (pipe)
+## 103.4
 
 Entrada padrão STDIN (0)
 
@@ -482,8 +479,6 @@ cpio -d -i < backup.cpio
 
 ### dd
 
-### 103.4
-
 ### tee
 
 le de uma entrada padrão e escreve uma saida padrão num arquivo
@@ -512,7 +507,7 @@ echo "versão do kernel:" `uname -r`
 echo "versão do kernel:" $(uname -r)
 ```
 
-## 103.5 Criar, Monitorar e Encerrar Processos - processos, ps, pstree, pgrep
+## 103.5
 
 PID = Process ID
 
@@ -520,12 +515,12 @@ PPID = Parent Process ID
 
 Primeiro processo do linux é o init que tem o ID 1
 
-## ps
+### ps
 
-Visualiza os processos em execução
+Visualiza os prcessos em execução
 
 - -u usuario
-- -x processos não ligados ou pts
+- -x processos ão ligados ou pts
 - -f mostra os parentescos dos processos
 - -a
 - -C {nome do processo}
@@ -537,11 +532,11 @@ exemplo:
 ps -uxf
 ```
 
-## pstree
+### pstree
 
 -p mostra os id dos processos
 
-## pgrep
+### pgrep
 
 mostra o numero do processo
 
@@ -553,7 +548,7 @@ pgrep firefox
 pgrep bash -u root
 ```
 
-## top
+### top
 
 - Shift + M = ordena por Memória
 - Shift + P = ordena por Processador
@@ -575,7 +570,7 @@ top -b
 top -b -d3 -n3 > log-process.log
 ```
 
-## kill
+### kill
 
 - SIGHUP terminar ou reiniair um processo ou reler as configurações
 - SIGINT interrompe um processo (Ctrl + C)
@@ -583,7 +578,7 @@ top -b -d3 -n3 > log-process.log
 - SIGKILL Matar abroptamente, nenhum processo consegue ignorar esse sinal
 - SIGTERM encerra o processo de forma não abrupta
 
-## killall
+### killall
 
 mata o processo baseado no nome
 
@@ -591,7 +586,7 @@ mata o processo baseado no nome
 killall firefox
 ```
 
-## pkill
+### pkill
 
 faz filtro similar ao pgrep
 
@@ -599,11 +594,11 @@ faz filtro similar ao pgrep
 pkill -9 nginx -u nginx
 ```
 
-## free
+### free
 
 visualização de memória
 
-## screen
+### screen
 
 varias telas no mesmo ssh
 
@@ -611,7 +606,7 @@ varias telas no mesmo ssh
 - ctrl a + c = Cria uma nova aba
 - exit encerra o screen
 
-## bg
+### bg
 
 processos em backgroud
 
@@ -621,11 +616,11 @@ firefox &
 
 - ctrl Z = pausa o processo
 
-## jobs
+### jobs
 
 mostra os processos em backgroud
 
-## nohup
+### nohup
 
 roda um comando imune a desligamentos e joga a saida do comando para um arquivo
 
@@ -633,11 +628,11 @@ roda um comando imune a desligamentos e joga a saida do comando para um arquivo
 nohup fireofox &
 ```
 
-## watch
+### watch
 
 persiste a saida de um comando na tela
 
-## tmux
+### tmux
 
 similar ao screen só que melhor
 
@@ -651,12 +646,16 @@ ctrl + b o - Ir para próxima página
 ctrl + b ; - Alterar entre o painel atual e o anterior
 ctrl + b x - Fechar o painel atual
 
-## Priorização de processos
+## 103.6
+
+### Priorização de processos
 
 Dentro do comando top
 
 PR - Diz a prioridade naquele momento
 NI - Admin influenciar a prioridade
+
+### nice renice
 
 Definir o nice de um processo
 
@@ -680,7 +679,9 @@ O padrão do nice é 10
 nice firefox
 ```
 
-## grep
+## 103.7
+
+### grep
 
 Numero de ocorrências:
 
@@ -719,7 +720,7 @@ Não considera expressões regulares
 fgrep
 ```
 
-## Expressões Regulares
+### Expressões Regulares
 
 help: man 7 regex
 
@@ -755,7 +756,9 @@ Mostrar apenas endereços ipv4:
 ip -br a | egrep -o "([0-9]{1,3}[.\]){3}([0-9]{1,3})"
 ```
 
-## vim
+## 103.8
+
+### vim
 
 / - para pesquisar de baixo pra baixo
 ? - para pesquisar de cima pra baixo
@@ -780,4 +783,4 @@ Salvar e Sair - ZZ
 Novo Arquivo - :w nome_do arquivo
 Carregar a ultima alteração - :e
 
-## emacs
+### emacs e nano
