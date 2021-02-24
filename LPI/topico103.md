@@ -792,7 +792,4 @@ Salvar e Sair - ZZ
 Novo Arquivo - :w nome_do arquivo
 Carregar a ultima alteração - :e
 
-
 ## emacs
-
-ctrl x
