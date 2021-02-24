@@ -733,6 +733,8 @@ fgrep
 
 ## Expressões Regulares
 
+help: man 7 regex
+
 - [] lista
 - ^ começo da linha
 - $ final da linha
@@ -741,6 +743,9 @@ fgrep
 - "+" pelo menos uma vez
 - ? Nenhuma ou apenas uma vez
 - . qualquer caracter, apenas um
+- {} numero de ocorrencias
+- () agrupar
+- | ou
 
 Exemplos com Egrep:
 
@@ -755,3 +760,39 @@ Mostrar as ocorrencias com bag, beg, big:
 ```bash
 egrep "b[aei]g" arquivo.txt
 ```
+
+Mostrar apenas endereços ipv4:
+
+```bash
+ip -br a | egrep -o "([0-9]{1,3}[.\]){3}([0-9]{1,3})"
+```
+
+## vim
+
+/ - para pesquisar de baixo pra baixo
+? - para pesquisar de cima pra baixo
+n - Proximo pra baixo
+N - Próximo pra cima
+h - um caracter pra trás
+j - desce uma linha
+k - sobe uma linha
+l - um caracter pra frente
+
+Recortar com edição - cc
+Recortar sem edição - dd
+Recortar 10 linhas - c10c ou d10d
+Copiar - yy (yanked)
+Copiar 10 - y10y
+Colar - p
+
+Salvar        - :w
+Sair          - :q
+Salvar e Sair - :x
+Salvar e Sair - ZZ
+Novo Arquivo - :w nome_do arquivo
+Carregar a ultima alteração - :e
+
+
+## emacs
+
+ctrl x
