@@ -101,3 +101,15 @@ O comando mount pega as informações desse arquivo:
 ```bash
 cat /proc/mount
 ```
+
+## Udev
+
+Regras do Udev
+
+```bash
+cat /lib/udev/rules.d/
+```
+
+Para criar as proprias regras, ou outras aplicações
+
+As regras são numeradas para ser executadas em ordem crescente
