@@ -311,3 +311,4 @@ Informações em tempo real
 
 ```bash
 journalctl -f
+```
