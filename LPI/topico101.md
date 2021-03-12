@@ -76,7 +76,7 @@ Visualizar detalhadamente um barramento usb
 lsusb -s 001:001 -v
 ```
 
-## Partições Virtuais
+### Partições Virtuais
 
 - /proc: informações dos processos ativos e recursos de hardware
 - /sys : informações sobre dispositivos de hardware (sysfs)
@@ -102,7 +102,7 @@ O comando mount pega as informações desse arquivo:
 cat /proc/mount
 ```
 
-## Udev
+### Udev
 
 Regras do Udev
 
@@ -110,7 +110,129 @@ Regras do Udev
 cat /lib/udev/rules.d/
 ```
 
+Para os admins ou aplicações:
+
+```bash
+/etc/udev/rules.d
+```
+
 Para criar as proprias regras, ou outras aplicações
 
 As regras são numeradas para ser executadas em ordem crescente
 
+devtmpfs é o sistema de arquivos temporario que grava em memoria e não em disco
+
+### Dispositivos de armazenamento
+
+- IDE
+  - /dev/hda ou sda - master
+  - /dev/hdb ou sdb - slave
+  - /dev/hdc ou sdc - master
+  - /dev/hdd ou sdd - slave
+
+- SCSI - Small Computer System Interface
+  - tipo:
+  - 8 bits (7 dispositivos 1 controlador)
+  - 16 bits (15 dispositivos 1 controlador)
+- SCSI_ID
+  - canal - identificador de cada adaptador
+  - ID - identificador de cada dispositivo
+  - LUN - Número Lógico de Unidade
+- Mapeamentos no Linux:
+  - /dev/sda - Primeiro
+  - /dev/sdb - Segundo
+  - /dev/sdc - Terceiro
+  - /dev/sdd - quarto
+- /proc/scsi/scsi
+
+### Processo de boot
+
+Bios > MBR > Bootloader(GRUB/LILO) Kernel (Executa o /sbin/init) > Init (Inicia os programas do runlevel/target definido)
+
+### MBR
+
+Master Boot Record.
+
+Localizado no primeiro setor do disco bootável
+
+- /dev/hda ou /dev/sda
+
+Contém informações sobre GRUB/LILO
+
+MBR carrega e executa o GRUB/LILO
+
+### Bootloader
+
+Gerenciador de boot
+
+Carrega o SO na mamória
+
+GRUB = Grand Unified BootLoader
+
+initrd/initramfs: também é carregado pelo bootloader para dar suporte ao kernel. filesystem root (/) temporário carregado em meméria RAM
+
+### INIT
+
+Tem a função de iniciar os processos e serviços no linux
+
+É o processo de ID 1
+
+Possui RunLevels ou Targets que definem diferentes modos de operação e o Grupo de Serviços que será iniciado
+
+Principais INITs utilizados:
+
+- SystemV (SysV)
+- SystemD
+- Upstart
+
+### dmesg
+
+Informações de boot
+
+```bash
+dmesg | less
+```
+
+### PROCESSO DE BOOT - UEFI
+
+UEFI >> bootloader >> Kernel >> init
+
+ESP (EFI System Partition)
+
+É montado no diretório /boot/efi
+
+Utiliza um filesystem do tipo FAT
+
+Utiliza GPT ao invés de MBR
+
+Suporta partições além de 2TB
+
+Boot Seguro (Imagem do kernel assinada)
+
+Configurado pelo UEFI Boot Manager
+
+```bash
+efibootmgr
+```
+
+### journalcrl
+
+Coleta de logs e informações de boot
+
+Informações de boot:
+
+```bash
+journalctl -b
+```
+
+Informações do Kernel
+
+```bash
+journalctl -k
+```
+
+Informações em tempo real
+
+```bash
+journalctl -f
+```
