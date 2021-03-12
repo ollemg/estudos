@@ -120,6 +120,81 @@ Para criar as proprias regras, ou outras aplicações
 
 As regras são numeradas para ser executadas em ordem crescente
 
+### Modulos
+
+Local onde ficam os modulos do sistema
+
+```bash
+/lib/modules/$(uname -r)/
+```
+
+Local onde é possivel importar modulos
+
+```bash
+cat /etc/modules
+```
+
+### lsmod
+
+visualiza os modulos carregados do sistema
+
+```bash
+lsmod
+```
+
+```bash
+cat /proc/modules
+```
+
+### modinfo
+
+comando para visualizar com detalhes um modulo
+
+```bash
+modinfo ip_tables
+```
+
+### rmmod
+
+Remove um modulo carregado
+
+```bash
+rmmod nome_do_modulo
+```
+
+### insmod
+
+carrega um modulo
+
+```bash
+insmod /lib/modules/3.10.0-1160.15.2.el7.x86_64/kernel/net/ipv4/netfilter/ip_tables.ko.xz
+```
+
+### modprobe
+
+Gerenciador de modulos
+
+Inserir modulos
+
+```bash
+modprobe nome_do_modulo
+```
+
+Remover Modulos
+
+```bash
+modprobe -r nome_do_modulo
+```
+
+Arquivos de configuração:
+
+```bash
+/lib/modprobe.d/
+```
+
+```bash
+/etc/modprobe.d/
+
 devtmpfs é o sistema de arquivos temporario que grava em memoria e não em disco
 
 ### Dispositivos de armazenamento
@@ -187,7 +262,7 @@ Principais INITs utilizados:
 
 ### dmesg
 
-Informações de boot
+log do boot da maquina e do funcionamento do sistema
 
 ```bash
 dmesg | less
@@ -235,4 +310,3 @@ Informações em tempo real
 
 ```bash
 journalctl -f
-```
