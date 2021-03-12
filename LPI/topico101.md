@@ -194,6 +194,7 @@ Arquivos de configuração:
 
 ```bash
 /etc/modprobe.d/
+```
 
 devtmpfs é o sistema de arquivos temporario que grava em memoria e não em disco
 
