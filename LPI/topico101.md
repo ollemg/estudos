@@ -312,3 +312,111 @@ Informações em tempo real
 ```bash
 journalctl -f
 ```
+
+### Gerenciadores de Inialização
+
+- SystemV
+- SystemD
+- Upstart
+
+### SystemV
+
+Runlevels
+
+- 0 desligamento
+- 1, s, S Single User
+- 2 Multiuser (sem rede)
+- 3 Multiuser (com rede)
+- 4 Multiuser (definido pelo usuario)
+- 5 Multiuser (com rede e gráfico)
+- 6 reinicialização
+
+Cada runlevel carrega um conjunto de programas, scripts e serviços
+cfg princial
+
+```bash
+/etc/inittab
+```
+
+Diretório de scripts
+
+```bash
+/etc/init.d/
+```
+
+```bash
+/etc/rc.d
+```
+
+### SystemD
+
+Units
+Grupo de Units (Targets)
+
+Tipos de unidades:
+
+- service
+- socket
+- device
+- mount
+- automount
+- target - equivale ao runlevel
+- snapchat
+
+Diretório principal
+
+```bash
+/lib/systemd/system/
+```
+
+Mudar runlevel
+
+```bash
+systemctl set-default grafical.target
+```
+
+```bash
+systemctl isolete rescue.target
+```
+
+### shutdown
+
+Sem nenhum parametro será agendado para desligar em 1 minuto:
+
+```bash
+shutdown
+```
+
+Cancelar o shudown:
+
+```bash
+shutdown -c
+```
+
+Desligar o linux (não desliga a maquina)
+
+```bash
+shutdown -h
+```
+
+Agendar desligamentos
+
+```bash
+shutdown 18:00
+```
+
+```bash
+shutdown +90
+```
+
+### Wall
+
+Manda mensagem para os outros usuarios
+
+```bash
+wall "mensagem"
+```
+
+### APCI
+
+Advanced Configuration and Power Interface
