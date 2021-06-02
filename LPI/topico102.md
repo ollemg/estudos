@@ -7,6 +7,7 @@
 - 102.5 Gerenciamento de Pacotes RPM e YUM (3)
 - 102.6 Linux e Virtualização (1)
 
+---
 ## 102.1
 
 ### Partição e ponto de montagem
@@ -67,7 +68,7 @@ Diretórios que não podem ser montados fora do /
 - /etc (/etc/fstab)
 - /bin (ficam os comandos)
 - /sbin (ficam os comandos)
-- /dev  
+- /dev
 - /proc
 - /sys
 
@@ -100,7 +101,7 @@ Mais detalhado:
 ```bash
 efibootmgr -v 
 ```
-
+---
 ## 102.2
 
 ### GRUB
@@ -181,3 +182,65 @@ update-grub
 ```bash
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
+---
+### 102.3 Gerenciamento de Bibliotecas compartilhadas
+
+Diretório padrão das bibliotecas:
+
+```
+ls /lib
+```
+
+```
+ls /usr/lib
+```
+
+Mostra o compartilhamento de bibliotecas requeridos pelo programa:
+
+```
+ldd /bin/bash
+```
+
+Mostra as bibliotecas de um processo
+```
+pldd $$
+```
+
+Utilizado Para recompilhar o /etc/ld.so.cache:
+
+```
+ldconfig
+```
+
+Lista todas as bibliotecas que estão no ld.so.cache
+```
+ldconfig -p
+```
+
+Para incluir novos diretorios de lib, editar o arquivo /etc/ld.so.conf:
+
+```
+$ cat /etc/ld.so.conf                                                                                                                   [20:32:04]
+include ld.so.conf.d/*.conf
+
+```
+Para importar novos diretorios de bibliotecas temporariamente, utilizar a variavel de ambiente LD_LIBRARY_PATH:
+
+```
+export LD_LIBRARY_PATH=/tmp/lib
+```
+
+---
+# 102.4 Gerenciamento de Pacotes
+
+|                                      | Padrão Debian                                                   | Padrão RPM/RedHat           |
+| ------------------------------------ | --------------------------------------------------------------- | --------------------------- |
+| Extensão                             | .deb                                                            | .rpm                        |
+| Gerenciador de pacotes               | `dpkg`                                                          | `rpm`                       |
+| Gerenciador de Pacotes + Repositório | `apt`                                                           | `yum`  `dnf`                |
+| OUtros Comandos                      | `dpkg-reconfigure`  `apt-cache`  `dselect`  `aptitude`  `alien` | `yumdownloader`  `rpm2cpio` |
+|                                      |                                                                 |                             |
+
+
+Cada sistema deve usar um sistema de gerenciamento único
+
