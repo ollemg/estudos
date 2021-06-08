@@ -244,3 +244,46 @@ export LD_LIBRARY_PATH=/tmp/lib
 
 Cada sistema deve usar um sistema de gerenciamento único
 
+## apt-get e apt-cache
+
+
+apt-cache é utilizado para visualizar informações do pacote, como: dependencias, versão
+
+```
+apt-cache depends nginx
+```
+
+```
+apt-cache show nginx
+```
+
+
+Arquivo de configuração do repositório apt:
+
+```
+cat /etc/apt/sources.list
+```
+
+
+Atualiza a lista que está dentro do sources.list
+```
+apt update
+```
+
+
+atualiza os pacotes instalados, se houver atualização
+```
+apt upgrade
+```
+
+Atualiza os pacotes validando erros de dependencias.
+
+```
+apt dist-upgrade
+```
+
+Instala um pacote:
+
+```
+apt install nginx
+```
